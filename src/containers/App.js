@@ -1,37 +1,44 @@
 import React, { Component } from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { fetchDogImage } from '../thunks/fetchDogImage';
+import { connect } from 'react-redux';
+import { Nav } from '../components/Nav';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      dog: null,
-      cat: null
-    };
+  componentDidMount() {
+    this.props.fetchDogImage();
   }
 
-  componentDidMount = async () => {
-    const url = 'https://random.dog/doggos';
-    const res = await fetch(url);
-    const dogImages = await res.json();
-    this.setState({ dog: dogImages[0] });
-  };
-
   render() {
-    const { dog } = this.state;
-    const url = 'https://random.dog/';
-    console.log(url + dog);
+    const { dogImgSrc, isLoading } = this.props;
+    const url = 'https://random.dog/' + dogImgSrc;
     return (
       <div className="App">
-        <Nav />
-        <Logo />
-        <BoostsSection />
-
-
-        {/* <video autoPlay={true} loop={true} height="300px" src={url + dog} /> */}
-        <img src={url + dog} width='300px'/> 
+        <Switch>
+          <Nav />
+          {/* <Logo /> */}
+          {/* <BoostsSection /> */}
+          {/* <video autoPlay={true} loop={true} height="300px" src={url + dog} /> */}
+          {isLoading && <div>Loading</div>}
+          {!isLoading && <img src={url} width="300px" />}
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export const mapStateToProps = state => ({
+  dogImgSrc: state.dogImgSrc,
+  isLoading: state.isLoading
+});
+
+export const mapDispatchToProps = dispatch => ({
+  fetchDogImage: () => dispatch(fetchDogImage())
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
