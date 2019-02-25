@@ -6,14 +6,18 @@ import { connect } from 'react-redux';
 
 class BoostsSection extends Component {
   render() {
-    const { dogImgSrc } = this.props;
+    const { dogImgSrc, fetchDogImage, isLoading } = this.props;
     return (
-      <div className="BoostsSection">
-        <h1>Choose your boost image</h1>
-        <div className="BoostsSection-cards">
-          <BoostCard img={dogImgSrc} />
-          <BoostCard img={dogImgSrc} />
-        </div>
+      <div>
+        {!isLoading && (
+          <div className="BoostsSection">
+            <h1>Pick your boost image</h1>
+            <div className="BoostsSection-cards">
+              <BoostCard img={dogImgSrc} fetchDogImage={fetchDogImage} />
+              {/* <BoostCard img={catImgSrc} fetchImage={fetchCatImage} /> */}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
