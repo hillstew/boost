@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About should match the snapshot 1`] = `
+<p>
+  a lot of stuff of about be the boost
+</p>
+`;

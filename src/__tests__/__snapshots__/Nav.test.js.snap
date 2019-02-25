@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match snapshot 1`] = `
+<nav
+  className="Nav"
+>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/saved"
+  >
+    Saved
+  </NavLink>
+  <hr />
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/sent"
+  >
+    Sent
+  </NavLink>
+  <hr />
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/about"
+  >
+    About
+  </NavLink>
+  <hr />
+</nav>
+`;
