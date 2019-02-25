@@ -1,0 +1,14 @@
+.BoostsSection {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  h1 {
+    font-family: 'Cereal';
+  }
+}
+
+.BoostsSection-cards {
+  display: flex;
+}

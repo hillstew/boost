@@ -1,0 +1,28 @@
+.BoostCard {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 10px 20px;
+    max-height: 400px;
+    max-width: 350px;
+  }
+
+  button {
+    align-self: flex-end;
+    background: url(../images/refresh1.png);
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    height: 32px;
+    margin-right: 15px;
+    transition-duration: 1s;
+    width: 32px;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+}
