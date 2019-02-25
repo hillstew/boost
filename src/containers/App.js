@@ -5,11 +5,14 @@ import { connect } from 'react-redux';
 import { Nav } from '../components/Nav';
 import BoostsSection from '../containers/BoostsSection';
 import { Logo } from '../components/Logo';
-
+import { About } from '../components/About';
+import { NotFound } from '../components/NotFound';
+import BoostForm from '../containers/BoostForm';
 class App extends Component {
   componentDidMount() {
     this.props.fetchDogImage();
   }
+
   render() {
     return (
       <div className="App">
@@ -17,7 +20,18 @@ class App extends Component {
           <Nav />
           <Logo />
         </div>
-        <BoostsSection />
+        <Switch>
+          <Route exact path="/" component={BoostsSection} />
+          <Route exact path="/about" component={About} />
+          <Route
+            path="/send-boost/:imgId"
+            render={({ match }) => {
+              const { imgId } = match.params;
+              return <BoostForm img={imgId} />;
+            }}
+          />
+          <Route path="*" component={NotFound} />
+        </Switch>
       </div>
     );
   }
