@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-var shortid = require('shortid');
-class BoostForm extends Component {
+let shortid = require('shortid');
+export class BoostForm extends Component {
   constructor() {
     super();
     this.state = {

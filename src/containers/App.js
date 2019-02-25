@@ -1,12 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { fetchDogImage } from '../thunks/fetchDogImage';
 import { connect } from 'react-redux';
 import { Nav } from '../components/Nav';
-import BoostsSection from '../containers/BoostsSection';
 import { Logo } from '../components/Logo';
 import { About } from '../components/About';
 import { NotFound } from '../components/NotFound';
+import BoostsSection from '../containers/BoostsSection';
 import BoostForm from '../containers/BoostForm';
 class App extends Component {
   componentDidMount() {
