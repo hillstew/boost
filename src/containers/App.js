@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { fetchDogImage } from '../thunks/fetchDogImage';
 import { connect } from 'react-redux';
 import { Nav } from '../components/Nav';
+import BoostsSection from '../containers/BoostsSection';
+import { Logo } from '../components/Logo';
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchDogImage();
   }
-
   render() {
-    const { dogImgSrc, isLoading } = this.props;
-    const url = 'https://random.dog/' + dogImgSrc;
     return (
       <div className="App">
-        <Switch>
+        <div className="App-nav-logo-div">
           <Nav />
-          {/* <Logo /> */}
-          {/* <BoostsSection /> */}
-          {/* <video autoPlay={true} loop={true} height="300px" src={url + dog} /> */}
-          {isLoading && <div>Loading</div>}
-          {!isLoading && <img src={url} width="300px" />}
-        </Switch>
+          <Logo />
+        </div>
+        <BoostsSection />
       </div>
     );
   }
