@@ -12,17 +12,18 @@
 
   button {
     align-self: flex-end;
-    background: url(../images/refresh1.png);
+    background: url(../images/refresh.svg);
     background-size: contain;
     border: none;
+    color: #5fa5e6;
     cursor: pointer;
     height: 32px;
-    margin-right: 15px;
+    margin-right: 20px;
     transition-duration: 1s;
     width: 32px;
 
     &:hover {
-      transform: rotate(180deg);
+      transform: scale(1.1);
     }
   }
 }
