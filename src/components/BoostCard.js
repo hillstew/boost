@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export const BoostCard = ({ img }) => {
+export const BoostCard = ({ img, fetchDogImage }) => {
   const url = 'https://random.dog/';
   return (
     <div className="BoostCard">
-      <img src={url + img} width="300px" alt="dog" />
-      <button className="BoostCard-button" />
+      <Link to={`/send-boost/${img}`}>
+        <img src={url + img} width="300px" alt="dog" />
+      </Link>
+      <button className="BoostCard-button" onClick={() => fetchDogImage()} />
     </div>
   );
 };
