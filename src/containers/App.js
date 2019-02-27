@@ -8,6 +8,7 @@ import { About } from '../components/About';
 import { NotFound } from '../components/NotFound';
 import BoostsSection from '../containers/BoostsSection';
 import BoostForm from '../containers/BoostForm';
+import SavedBoosts from '../containers/SavedBoosts';
 export class App extends Component {
   componentDidMount() {
     this.props.fetchDogImage();
@@ -28,6 +29,7 @@ export class App extends Component {
             <Switch>
               <Route exact path="/" component={BoostsSection} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/saved" component={SavedBoosts} />
               <Route
                 path="/send-boost/:imgId"
                 render={({ match }) => {

@@ -15,14 +15,6 @@ exports[`Nav should match snapshot 1`] = `
   <NavLink
     activeClassName="active"
     aria-current="page"
-    to="/sent"
-  >
-    Sent
-  </NavLink>
-  <hr />
-  <NavLink
-    activeClassName="active"
-    aria-current="page"
     to="/about"
   >
     About
