@@ -12,8 +12,12 @@ export const fetchDogImage = () => {
       }
       dispatch(setLoading(false));
       const dogImages = await res.json();
-      const randomImage = dogImages[randomIndex(dogImages.length - 1)];
-      dispatch(setDogImage(randomImage));
+      let randomImage = dogImages[randomIndex(dogImages.length - 1)];
+      if (randomImage.includes('jpg')) {
+        dispatch(setDogImage(randomImage));
+      } else {
+        randomImage = dogImages[randomIndex(dogImages.length - 1)];
+      }
     } catch (error) {
       dispatch(setError('There was an error, please refresh'));
     }
