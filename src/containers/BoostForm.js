@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
+import { fetchDogImage } from '../thunks/fetchDogImage';
+import { addSaved } from '../actions';
 let shortid = require('shortid');
 export class BoostForm extends Component {
   constructor() {
@@ -20,8 +23,8 @@ export class BoostForm extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSave = e => {
-    const { dogImgSrc } = this.props;
+  handleSave = () => {
+    const { dogImgSrc, addSaved, history, fetchDogImage } = this.props;
     const { senderNum, recipientNum, boostMessage } = this.state;
     let boost = {
       id: shortid.generate(),
@@ -30,6 +33,14 @@ export class BoostForm extends Component {
       boostMessage,
       dogImgSrc
     };
+    addSaved(boost);
+    this.clearInputs();
+    fetchDogImage();
+    history.replace('/');
+  };
+
+  clearInputs = () => {
+    this.setState({ senderNum: '', recipientNum: '', boostMessage: '' });
   };
 
   render() {
@@ -72,8 +83,11 @@ export class BoostForm extends Component {
         <button name="save" onClick={this.handleSave}>
           Save
         </button>
-        <button name="send" type="submit">
-          Send
+        <button name="send" type="submit" data-tip data-for="tooltip" onClick={this.handleSubmit}>
+          SEND
+          <ReactTooltip id="tooltip" type="light" effect="solid">
+            Coming soon
+          </ReactTooltip>
         </button>
       </form>
     );
@@ -84,4 +98,12 @@ export const mapStateToProps = state => ({
   dogImgSrc: state.dogImgSrc
 });
 
-export default connect(mapStateToProps)(BoostForm);
+export const mapDispatchToProps = dispatch => ({
+  addSaved: boost => dispatch(addSaved(boost)),
+  fetchDogImage: () => dispatch(fetchDogImage())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BoostForm);
