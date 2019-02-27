@@ -1,0 +1,76 @@
+.SavedBoosts {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.SavedBoosts-boost {
+  background: #cbe65f;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 20px auto;
+  padding-bottom: 20px;
+  width: 350px;
+
+  .SavedBoosts-flex {
+    display: flex;
+  }
+
+  .div {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto 0 auto;
+    width: 150px;
+
+    p {
+      background-color: #edf8f9;
+      border: none;
+      border-radius: 5px;
+      font-family: $font-light;
+      margin-top: 15px;
+      padding: 7px 0;
+    }
+  }
+
+  img {
+    border-radius: 5px;
+    margin: 25px 25px 0 0;
+    max-height: 100px;
+    max-width: 150px;
+  }
+
+  .boost-msg {
+    background: transparent;
+    border: transparent;
+    display: block;
+    font-family: $font-light;
+    font-size: 1.1rem;
+    line-height: 23px;
+    margin: 25px auto;
+    overflow-wrap: normal;
+    overflow-y: auto;
+    padding: 0 30px;
+    text-align: left;
+    resize: none;
+  }
+
+  button {
+    background: #5fa5e6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 5px;
+    color: #f5f5f5;
+    cursor: pointer;
+    font-family: $font-light;
+    font-size: 1rem;
+    height: 30px;
+    margin-right: 15px;
+    text-transform: uppercase;
+    transition-duration: 1s;
+    width: 80px;
+
+    &:hover {
+      background-color: #b75fe6;
+    }
+  }
+}
