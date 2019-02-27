@@ -11,13 +11,12 @@ export const fetchDogImage = () => {
         throw Error(res.statusText);
       }
       dispatch(setLoading(false));
-      const dogImages = await res.json();
-      let randomImage = dogImages[randomIndex(dogImages.length - 1)];
-      if (randomImage.includes('jpg')) {
-        dispatch(setDogImage(randomImage));
-      } else {
-        randomImage = dogImages[randomIndex(dogImages.length - 1)];
-      }
+      let dogImages = await res.json();
+      dogImages = dogImages.filter(image => {
+        return image.includes('jpg');
+      });
+      const randomImage = dogImages[randomIndex(dogImages.length - 1)];
+      dispatch(setDogImage(randomImage));
     } catch (error) {
       dispatch(setError('There was an error, please refresh'));
     }
