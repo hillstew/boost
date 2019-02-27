@@ -8,31 +8,37 @@ import { About } from '../components/About';
 import { NotFound } from '../components/NotFound';
 import BoostsSection from '../containers/BoostsSection';
 import BoostForm from '../containers/BoostForm';
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     this.props.fetchDogImage();
   }
 
   render() {
-    const { history } = this.props;
+    const { history, hasError, isLoading } = this.props;
     return (
-      <div className="App">
-        <div className="App-nav-logo-div">
-          <Nav />
-          <Logo />
-        </div>
-        <Switch>
-          <Route exact path="/" component={BoostsSection} />
-          <Route exact path="/about" component={About} />
-          <Route
-            path="/send-boost/:imgId"
-            render={({ match }) => {
-              const { imgId } = match.params;
-              return <BoostForm img={imgId} history={history} />;
-            }}
-          />
-          <Route path="*" component={NotFound} />
-        </Switch>
+      <div>
+        {isLoading && <div>I am fetching the perfect pup for your boost</div>}
+        {hasError !== '' && <div>There was an error, please refresh</div>}
+        {!isLoading && hasError === '' && (
+          <div className="App">
+            <div className="App-nav-logo-div">
+              <Nav />
+              <Logo />
+            </div>
+            <Switch>
+              <Route exact path="/" component={BoostsSection} />
+              <Route exact path="/about" component={About} />
+              <Route
+                path="/send-boost/:imgId"
+                render={({ match }) => {
+                  const { imgId } = match.params;
+                  return <BoostForm img={imgId} history={history} />;
+                }}
+              />
+              <Route path="*" component={NotFound} />
+            </Switch>
+          </div>
+        )}
       </div>
     );
   }
@@ -40,7 +46,8 @@ class App extends Component {
 
 export const mapStateToProps = state => ({
   dogImgSrc: state.dogImgSrc,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  hasError: state.hasError
 });
 
 export const mapDispatchToProps = dispatch => ({

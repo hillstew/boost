@@ -48,7 +48,7 @@ export class BoostForm extends Component {
     const { senderNum, recipientNum, boostMessage } = this.state;
     const url = 'https://random.dog/' + dogImgSrc;
     return (
-      <form onSubmit={this.handleSubmit} className="BoostForm">
+      <form onSubmit={e => this.handleSubmit(e)} className="BoostForm">
         <div className="div-flex">
           <div className="input-div">
             <label>
@@ -80,7 +80,7 @@ export class BoostForm extends Component {
           placeholder="Write your boost here"
           value={boostMessage}
         />
-        <button name="save" onClick={this.handleSave}>
+        <button name="save" onClick={this.handleSave} className="save-button">
           Save
         </button>
         <button name="send" type="submit" data-tip data-for="tooltip" onClick={this.handleSubmit}>
