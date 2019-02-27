@@ -6,11 +6,11 @@ exports[`BoostCard should match the snapshot 1`] = `
 >
   <Link
     replace={false}
-    to="/send-boost/undefined"
+    to="/send-boost/hfdskfj.jpg"
   >
     <img
       alt="dog"
-      src="https://random.dog/undefined"
+      src="https://random.dog/hfdskfj.jpg"
       width="300px"
     />
   </Link>

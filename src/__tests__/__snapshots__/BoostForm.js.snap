@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoostForm should match the snapshot 1`] = `
+<form
+  className="BoostForm"
+  onSubmit={[Function]}
+>
+  <div
+    className="div-flex"
+  >
+    <div
+      className="input-div"
+    >
+      <label>
+        To:
+        <input
+          name="senderNum"
+          onChange={[Function]}
+          placeholder="855-546-1234"
+          type="number"
+          value=""
+        />
+      </label>
+      <label>
+        From:
+        <input
+          name="recipientNum"
+          onChange={[Function]}
+          placeholder="765-765-2343"
+          type="number"
+          value=""
+        />
+      </label>
+    </div>
+    <img
+      alt="animal"
+      src="https://random.dog/fdg43-1"
+    />
+  </div>
+  <textarea
+    name="boostMessage"
+    onChange={[Function]}
+    placeholder="Write your boost here"
+    value=""
+  />
+  <button
+    className="save-button"
+    name="save"
+    onClick={[Function]}
+  >
+    Save
+  </button>
+  <button
+    data-for="tooltip"
+    data-tip={true}
+    name="send"
+    onClick={[Function]}
+    type="submit"
+  >
+    SEND
+    <ReactTooltip
+      effect="solid"
+      id="tooltip"
+      insecure={true}
+      resizeHide={true}
+      type="light"
+      wrapper="div"
+    >
+      Coming soon
+    </ReactTooltip>
+  </button>
+</form>
+`;
