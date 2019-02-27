@@ -1,110 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SavedBoosts should match the snapshot 1`] = `
-<div
-  className="SavedBoosts"
->
+<div>
   <div
-    className="SavedBoosts-boost"
+    className="SavedBoosts"
   >
     <div
-      className="SavedBoosts-flex"
+      className="SavedBoosts-boost"
     >
       <div
-        className="div"
+        className="SavedBoosts-flex"
       >
-        <p>
-          TO: 
-        </p>
-        <p>
-          FROM: 
-        </p>
+        <div
+          className="div"
+        >
+          <p>
+            TO: 
+          </p>
+          <p>
+            FROM: 
+          </p>
+        </div>
+        <img
+          alt="animal"
+          src="https://random.dog/undefined"
+        />
       </div>
-      <img
-        alt="animal"
-        src="https://random.dog/undefined"
-      />
+      <p
+        className="boost-msg"
+      >
+        Your boost messsage: 
+      </p>
+      <button
+        className="remove-button"
+        name="delete"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
     </div>
-    <p
-      className="boost-msg"
-    >
-      Your boost messsage: 
-    </p>
-    <button
-      className="remove-button"
-      name="delete"
-      onClick={[Function]}
-    >
-      Delete
-    </button>
-  </div>
-  <div
-    className="SavedBoosts-boost"
-  >
     <div
-      className="SavedBoosts-flex"
+      className="SavedBoosts-boost"
     >
       <div
-        className="div"
+        className="SavedBoosts-flex"
       >
-        <p>
-          TO: 
-        </p>
-        <p>
-          FROM: 
-        </p>
+        <div
+          className="div"
+        >
+          <p>
+            TO: 
+          </p>
+          <p>
+            FROM: 
+          </p>
+        </div>
+        <img
+          alt="animal"
+          src="https://random.dog/undefined"
+        />
       </div>
-      <img
-        alt="animal"
-        src="https://random.dog/undefined"
-      />
+      <p
+        className="boost-msg"
+      >
+        Your boost messsage: 
+      </p>
+      <button
+        className="remove-button"
+        name="delete"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
     </div>
-    <p
-      className="boost-msg"
-    >
-      Your boost messsage: 
-    </p>
-    <button
-      className="remove-button"
-      name="delete"
-      onClick={[Function]}
-    >
-      Delete
-    </button>
-  </div>
-  <div
-    className="SavedBoosts-boost"
-  >
     <div
-      className="SavedBoosts-flex"
+      className="SavedBoosts-boost"
     >
       <div
-        className="div"
+        className="SavedBoosts-flex"
       >
-        <p>
-          TO: 
-        </p>
-        <p>
-          FROM: 
-        </p>
+        <div
+          className="div"
+        >
+          <p>
+            TO: 
+          </p>
+          <p>
+            FROM: 
+          </p>
+        </div>
+        <img
+          alt="animal"
+          src="https://random.dog/undefined"
+        />
       </div>
-      <img
-        alt="animal"
-        src="https://random.dog/undefined"
-      />
+      <p
+        className="boost-msg"
+      >
+        Your boost messsage: 
+      </p>
+      <button
+        className="remove-button"
+        name="delete"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
     </div>
-    <p
-      className="boost-msg"
-    >
-      Your boost messsage: 
-    </p>
-    <button
-      className="remove-button"
-      name="delete"
-      onClick={[Function]}
-    >
-      Delete
-    </button>
   </div>
 </div>
 `;

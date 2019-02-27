@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeSaved } from '../actions';
-
 export class SavedBoosts extends Component {
   renderSavedBoosts = () => {
     const { removeSaved, saved } = this.props;
@@ -26,7 +25,13 @@ export class SavedBoosts extends Component {
   };
 
   render() {
-    return <div className="SavedBoosts">{this.renderSavedBoosts()}</div>;
+    const { saved, history } = this.props;
+    return (
+      <div>
+        {saved.length === 0 && history.replace('/')}
+        <div className="SavedBoosts">{this.renderSavedBoosts()}</div>
+      </div>
+    );
   }
 }
 
