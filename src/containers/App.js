@@ -14,6 +14,7 @@ class App extends Component {
   }
 
   render() {
+    const { history } = this.props;
     return (
       <div className="App">
         <div className="App-nav-logo-div">
@@ -27,7 +28,7 @@ class App extends Component {
             path="/send-boost/:imgId"
             render={({ match }) => {
               const { imgId } = match.params;
-              return <BoostForm img={imgId} />;
+              return <BoostForm img={imgId} history={history} />;
             }}
           />
           <Route path="*" component={NotFound} />
