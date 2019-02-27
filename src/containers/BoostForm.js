@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import { fetchDogImage } from '../thunks/fetchDogImage';
 import { addSaved } from '../actions';
+import PropTypes from 'prop-types';
 let shortid = require('shortid');
+
 export class BoostForm extends Component {
   constructor() {
     super();
@@ -107,3 +109,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(BoostForm);
+
+BoostForm.propTypes = {
+  dogImgSrc: PropTypes.string,
+  addSaved: PropTypes.func,
+  fetchDogImage: PropTypes.func
+};

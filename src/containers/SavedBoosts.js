@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeSaved } from '../actions';
+import PropTypes from 'prop-types';
+
 export class SavedBoosts extends Component {
   renderSavedBoosts = () => {
     const { removeSaved, saved } = this.props;
@@ -47,3 +49,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SavedBoosts);
+
+SavedBoosts.propTypes = {
+  saved: PropTypes.array,
+  removeSaved: PropTypes.func
+};

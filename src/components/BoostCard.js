@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const BoostCard = ({ img, fetchDogImage }) => {
   const url = 'https://random.dog/';
@@ -11,4 +12,9 @@ export const BoostCard = ({ img, fetchDogImage }) => {
       <button className="BoostCard-button" onClick={() => fetchDogImage()} />
     </div>
   );
+};
+
+BoostCard.propTypes = {
+  img: PropTypes.string,
+  fetchDogImage: PropTypes.func
 };

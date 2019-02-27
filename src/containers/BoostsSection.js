@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BoostCard } from '../components/BoostCard';
 import { fetchDogImage } from '../thunks/fetchDogImage';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class BoostsSection extends Component {
   render() {
@@ -34,3 +35,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(BoostsSection);
+
+BoostsSection.propTypes = {
+  dogImgSrc: PropTypes.string,
+  isLoading: PropTypes.bool,
+  fetchDogImage: PropTypes.func
+};

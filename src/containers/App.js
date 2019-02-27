@@ -9,6 +9,8 @@ import { NotFound } from '../components/NotFound';
 import BoostsSection from '../containers/BoostsSection';
 import BoostForm from '../containers/BoostForm';
 import SavedBoosts from '../containers/SavedBoosts';
+import PropTypes from 'prop-types';
+
 export class App extends Component {
   componentDidMount() {
     this.props.fetchDogImage();
@@ -62,3 +64,10 @@ export default withRouter(
     mapDispatchToProps
   )(App)
 );
+
+App.propTypes = {
+  dogImgSrc: PropTypes.string,
+  isLoading: PropTypes.bool,
+  hasError: PropTypes.string,
+  removeSaved: PropTypes.func
+};
