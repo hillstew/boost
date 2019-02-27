@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`About should match the snapshot 1`] = `
-<p>
-  a lot of stuff of about be the boost
-</p>
+<div
+  className="About"
+>
+  <h1>
+    About Be the Boost 
+  </h1>
+  <p>
+    Sometimes in life, you find it hard to encourage your friend going through a hard time, of having a bad day. Boost is a way to send your friend a picture of a dog (cats coming soon!) and message.
+  </p>
+  <img
+    alt="good news is coming"
+    src="good-things.jpg"
+  />
+</div>
 `;
