@@ -6,8 +6,8 @@ export const Nav = () => {
     <nav className="Nav">
       <NavLink to="/saved">Saved</NavLink>
       <hr />
-      {/* <NavLink to="/sent">Sent</NavLink>
-      <hr /> */}
+      <NavLink to="/sent">Sent</NavLink>
+      <hr />
       <NavLink to="/about">About</NavLink>
       <hr />
     </nav>
