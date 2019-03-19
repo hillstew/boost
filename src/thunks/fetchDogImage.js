@@ -18,7 +18,7 @@ export const fetchDogImage = () => {
       const randomImage = dogImages[randomIndex(dogImages.length - 1)];
       dispatch(setDogImage(randomImage));
     } catch (error) {
-      dispatch(setError('There was an error, please refresh'));
+      dispatch(setError(error.message));
     }
   };
 };
