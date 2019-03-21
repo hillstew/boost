@@ -3,6 +3,11 @@ export const setDogImage = image => ({
   image
 });
 
+export const setCatImage = image => ({
+  type: 'SET_CAT_IMAGE',
+  image
+});
+
 export const setError = error => ({
   type: 'SET_ERROR',
   error
