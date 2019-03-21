@@ -13,7 +13,7 @@ export const fetchDogImage = () => {
       dispatch(setLoading(false));
       let dogImages = await res.json();
       dogImages = dogImages.filter(image => {
-        return image.includes('jpg');
+        return image.includes('jpg') || image.includes('gif');
       });
       const randomImage = dogImages[randomIndex(dogImages.length - 1)];
       dispatch(setDogImage(randomImage));

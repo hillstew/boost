@@ -2,14 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const BoostCard = ({ img, fetchDogImage }) => {
-  const url = 'https://random.dog/';
+export const BoostCard = props => {
+  const { img, fetchDogImage, fetchCatImage } = props;
+  const dogUrl = 'https://random.dog/' + img;
+  const catUrl = 'https://cdn2.thecatapi.com/images/' + img;
   return (
     <div className="BoostCard">
+      {fetchCatImage && <button className="BoostCard-button" onClick={() => fetchCatImage()} />}
+      {fetchDogImage && <button className="BoostCard-button" onClick={() => fetchDogImage()} />}
       <Link to={`/send-boost/${img}`}>
-        <img src={url + img} width="300px" alt="dog" />
+        {fetchCatImage && <img src={catUrl} width="300px" alt="cat" />}
+        {fetchDogImage && <img src={dogUrl} width="300px" alt="dog" />}
       </Link>
-      <button className="BoostCard-button" onClick={() => fetchDogImage()} />
+
     </div>
   );
 };

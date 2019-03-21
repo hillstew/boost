@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { fetchDogImage } from '../thunks/fetchDogImage';
+import { fetchCatImage } from "../thunks/fetchCatImage";
 import { connect } from 'react-redux';
 import { Nav } from '../components/Nav';
 import { Logo } from '../components/Logo';
@@ -12,16 +13,17 @@ import SavedBoosts from '../containers/SavedBoosts';
 import PropTypes from 'prop-types';
 
 export class App extends Component {
-  componentDidMount() {
-    this.props.fetchDogImage();
+  async componentDidMount() {
+    await this.props.fetchDogImage();
+    await this.props.fetchCatImage();
   }
 
   render() {
     const { history, hasError, isLoading } = this.props;
     return (
       <div>
-        {isLoading && <div>I am fetching the perfect pup for your boost</div>}
-        {hasError !== '' && <div>There was an error, please refresh</div>}
+        {isLoading && <div className="loading-div">Fetching the perfect furry friends for your boost...</div>}
+        {hasError !== '' && <div className="error-div">There was an error, please refresh</div>}
         {!isLoading && hasError === '' && (
           <div className="div-app">
             <div className="App">
@@ -34,10 +36,10 @@ export class App extends Component {
                 <Route exact path="/about" component={About} />
                 <Route exact path="/saved" component={SavedBoosts} />
                 <Route
-                  path="/send-boost/:imgId"
+                  path="/send-boost/:id"
                   render={({ match }) => {
-                    const { imgId } = match.params;
-                    return <BoostForm img={imgId} history={history} />;
+                    const { id } = match.params;
+                    return <BoostForm img={id} history={history} />;
                   }}
                 />
                 <Route path="*" component={NotFound} />
@@ -52,12 +54,14 @@ export class App extends Component {
 
 export const mapStateToProps = state => ({
   dogImgSrc: state.dogImgSrc,
+  catImgSrc: state.catImgSrc,
   isLoading: state.isLoading,
   hasError: state.hasError
 });
 
 export const mapDispatchToProps = dispatch => ({
-  fetchDogImage: () => dispatch(fetchDogImage())
+  fetchDogImage: () => dispatch(fetchDogImage()),
+  fetchCatImage: () => dispatch(fetchCatImage())
 });
 
 export default withRouter(

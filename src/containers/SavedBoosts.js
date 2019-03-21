@@ -5,6 +5,8 @@ import { postData } from '../api';
 import PropTypes from 'prop-types';
 
 export class SavedBoosts extends Component {
+  
+
   renderSavedBoosts = () => {
     const { removeSaved, saved } = this.props;
     return saved.map(boost => {
@@ -18,10 +20,10 @@ export class SavedBoosts extends Component {
             <img src={boost.mediaUrl} alt="animal" />
           </div>
           <p className="boost-msg">{boost.body}</p>
-          <button name="send" onClick={() => postData(boost)} className="remove-button">
+          <button name="send" onClick={() => postData(boost)} className="send-button">
             Send
           </button>
-          <button name="delete" onClick={() => removeSaved(boost.id)} className="remove-button">
+          <button name="delete" onClick={() => removeSaved(boost.id)} className="delete-button">
             Delete
           </button>
         </div>

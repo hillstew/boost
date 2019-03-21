@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchDogImage } from '../thunks/fetchDogImage';
+import { fetchCatImage } from '../thunks/fetchCatImage';
 import { addSaved } from '../actions';
 import PropTypes from 'prop-types';
 import { postData } from '../api';
@@ -18,16 +19,18 @@ export class BoostForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { dogImgSrc, history, fetchDogImage } = this.props;
+    const { history, fetchDogImage, fetchCatImage, img } = this.props;
     const { recipientNum, boostMessage, senderName } = this.state;
+    let boostImage = this.getImage(img)
     let boost = {
       senderName,
       to: `+1${recipientNum}`,
       body: `${boostMessage}  -a boost from ${senderName}`,
-      mediaUrl: `https://random.dog/${dogImgSrc}`
+      mediaUrl: boostImage
     };
     postData(boost);
     fetchDogImage();
+    fetchCatImage();
     this.clearInputs();
     history.replace('/');
   };
@@ -38,31 +41,44 @@ export class BoostForm extends Component {
   };
 
   handleSave = () => {
-    const { dogImgSrc, addSaved, history, fetchDogImage } = this.props;
+    const { addSaved, history, fetchDogImage, fetchCatImage, img } = this.props;
     const { senderName, recipientNum, boostMessage } = this.state;
+    let boostImage = this.getImage(img)
     let boost = {
       id: shortid.generate(),
       senderName,
       to: `+1${recipientNum}`,
       body: `${boostMessage}  --a boost from ${senderName}`,
-      mediaUrl: `https://random.dog/${dogImgSrc}`
+      mediaUrl: boostImage
     };
     addSaved(boost);
-    fetchDogImage();
-    this.clearInputs();
     history.replace('/');
+    fetchDogImage();
+    fetchCatImage();
+    this.clearInputs();
   };
 
   clearInputs = () => {
-    this.setState({ senderNum: '', recipientNum: '', boostMessage: '' });
+    this.setState({
+      senderNum: '',
+      recipientNum: '',
+      boostMessage: ''
+    });
+  };
+
+  getImage = () => {
+    const { dogImgSrc, catImgSrc, img } = this.props;
+    const dogUrl = 'https://random.dog/' + dogImgSrc;
+    const catUrl = 'https://cdn2.thecatapi.com/images/' + catImgSrc;
+    let url;
+    img.length > 10 ? url = dogUrl : url = catUrl;
+    return url;
   };
 
   render() {
-    const { dogImgSrc } = this.props;
     const { recipientNum, boostMessage, senderName } = this.state;
-    const url = 'https://random.dog/' + dogImgSrc;
     return (
-      <form onSubmit={e => this.handleSubmit(e)} className="BoostForm" autocomplete="off">
+      <form onSubmit={e => this.handleSubmit(e)} className="BoostForm" autoComplete="off">
         <div className="div-flex">
           <div className="input-div">
             <label>
@@ -71,7 +87,7 @@ export class BoostForm extends Component {
                 onChange={this.handleChange}
                 name="recipientNum"
                 type="number"
-                placeholder="855-546-1234"
+                placeholder="8555461234"
                 value={recipientNum}
               />
             </label>
@@ -80,7 +96,7 @@ export class BoostForm extends Component {
               <input onChange={this.handleChange} name="senderName" type="text" placeholder="Name" value={senderName} />
             </label>
           </div>
-          <img src={url} alt="animal" />
+          <img src={this.getImage()} alt="animal" />
         </div>
         <textarea
           onChange={this.handleChange}
@@ -91,7 +107,7 @@ export class BoostForm extends Component {
         <button name="save" onClick={this.handleSave} className="save-button">
           Save
         </button>
-        <button name="send" type="submit" data-tip data-for="tooltip" onClick={this.handleSubmit}>
+        <button name="send" type="submit" onClick={this.handleSubmit}>
           SEND
         </button>
       </form>
@@ -100,12 +116,14 @@ export class BoostForm extends Component {
 }
 
 export const mapStateToProps = state => ({
-  dogImgSrc: state.dogImgSrc
+  dogImgSrc: state.dogImgSrc,
+  catImgSrc: state.catImgSrc
 });
 
 export const mapDispatchToProps = dispatch => ({
   addSaved: boost => dispatch(addSaved(boost)),
-  fetchDogImage: () => dispatch(fetchDogImage())
+  fetchDogImage: () => dispatch(fetchDogImage()),
+  fetchCatImage: () => dispatch(fetchCatImage())
 });
 
 export default connect(
