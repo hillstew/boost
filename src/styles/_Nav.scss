@@ -2,10 +2,11 @@
   color: #551a8b;
   display: flex;
   flex-direction: column;
-  margin: 20px 0 0 30px;
+  margin: 30px 0 0 40px;
 
   a {
     align-self: flex-start;
+    color: #551a8b;
     cursor: pointer;
     font-family: $font-bold;
     font-size: 3rem;
@@ -13,7 +14,7 @@
     margin-top: 8px;
     text-align: left;
     text-decoration: none;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     text-transform: uppercase;
     width: 250px;
   }
