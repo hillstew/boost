@@ -1,6 +1,6 @@
 # Boost
 
-Boost was designed for users that have sad friends that need boosting. A user will have the option to select the already populated animal or choose to fetch another.
+Boost allows users to brighten their friends days with a text message along with a selected image of either a dog or cat. It was born from the idea that a “boost” including a furry friend would encourage anyone that is having a hard day.
 
 ## Setup front-end:
 
