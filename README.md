@@ -2,7 +2,7 @@
 
 Boost allows users to brighten their friends days with a text message along with a selected image of either a dog or cat. It was born from the idea that a “boost” including a furry friend would encourage anyone that is having a hard day.
 
-## Setup front-end:
+### Setup front-end:
 
 #### in your terminal:
 
@@ -27,7 +27,7 @@ Boost allows users to brighten their friends days with a text message along with
 
 ![boost](./public/wireframe3.png)
 
-## Wireframes:
+### Wireframes:
 
 #### home
 
@@ -37,4 +37,4 @@ Boost allows users to brighten their friends days with a text message along with
 
 ![Wireframes-createboost](./public/wireframe2.png)
 
-### [Original Assignment](http://frontend.turing.io/projects/binary-challenge.html)
+### [Original Assignment Spec](http://frontend.turing.io/projects/binary-challenge.html)
