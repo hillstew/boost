@@ -1,5 +1,5 @@
 export const postData = async data => {
-  const url = 'https://boost-be.herokuapp.com/api/messages';
+  const url = process.env.REACT_APP_BACKEND_URL;
   const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify(data),
