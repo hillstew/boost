@@ -5,25 +5,29 @@ import { postData } from '../api';
 import PropTypes from 'prop-types';
 
 export class SavedBoosts extends Component {
-  
-
   renderSavedBoosts = () => {
     const { removeSaved, saved } = this.props;
     return saved.map(boost => {
       return (
-        <div className="SavedBoosts-boost" key={boost.id}>
-          <div className="SavedBoosts-flex">
-            <div className="div">
+        <div className='SavedBoosts-boost' key={boost.id}>
+          <div className='SavedBoosts-flex'>
+            <div className='div'>
               <p>TO: {boost.to}</p>
               <p>FROM: {boost.senderName}</p>
             </div>
-            <img src={boost.mediaUrl} alt="animal" />
+            <img src={boost.mediaUrl} alt='animal' />
           </div>
-          <p className="boost-msg">{boost.body}</p>
-          <button name="send" onClick={() => postData(boost)} className="send-button">
+          <p className='boost-msg'>{boost.body}</p>
+          <button
+            name='send'
+            onClick={() => postData(boost)}
+            className='send-button'>
             Send
           </button>
-          <button name="delete" onClick={() => removeSaved(boost.id)} className="delete-button">
+          <button
+            name='delete'
+            onClick={() => removeSaved(boost.id)}
+            className='delete-button'>
             Delete
           </button>
         </div>
@@ -36,7 +40,7 @@ export class SavedBoosts extends Component {
     return (
       <div>
         {saved.length === 0 && history.replace('/')}
-        <div className="SavedBoosts">{this.renderSavedBoosts()}</div>
+        <div className='SavedBoosts'>{this.renderSavedBoosts()}</div>
       </div>
     );
   }
