@@ -12,10 +12,6 @@ export const Nav = () => {
             Saved
           </NavLink>
           <hr />
-          <NavLink to='/sent' className='Nav-a'>
-            Sent
-          </NavLink>
-          <hr />
           <NavLink to='/about' className='Nav-a'>
             About
           </NavLink>

@@ -46,13 +46,13 @@
   .App {
     flex-direction: column;
     margin: 0;
-  }
 
-  .App-nav-logo-div {
-    flex-direction: row;
-  }
+    .App-nav-logo-div {
+      flex-direction: row;
+    }
 
-  .App-links {
-    padding-top: 30px;
+    .App-links {
+      padding-top: 30px;
+    }
   }
 }
