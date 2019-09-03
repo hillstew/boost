@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { fetchDogImage } from '../thunks/fetchDogImage';
-import { fetchCatImage } from "../thunks/fetchCatImage";
+import { fetchCatImage } from '../thunks/fetchCatImage';
 import { connect } from 'react-redux';
 import { Nav } from '../components/Nav';
-import { Logo } from '../components/Logo';
 import { About } from '../components/About';
 import { NotFound } from '../components/NotFound';
 import BoostsSection from '../containers/BoostsSection';
@@ -22,27 +21,30 @@ export class App extends Component {
     const { history, hasError, isLoading } = this.props;
     return (
       <div>
-        {isLoading && <div className="loading-div">Fetching the perfect furry friends for your boost...</div>}
-        {hasError !== '' && <div className="error-div">There was an error, please refresh</div>}
+        {isLoading && (
+          <div className='loading-div'>
+            Fetching the perfect furry friends for your boost...
+          </div>
+        )}
+        {hasError !== '' && (
+          <div className='error-div'>There was an error, please refresh</div>
+        )}
         {!isLoading && hasError === '' && (
-          <div className="div-app">
-            <div className="App">
-              <div className="App-nav-logo-div">
-                <Nav />
-                <Logo />
-              </div>
+          <div className='div-app'>
+            <div className='App'>
+              <Nav />
               <Switch>
-                <Route exact path="/" component={BoostsSection} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/saved" component={SavedBoosts} />
+                <Route exact path='/' component={BoostsSection} />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/saved' component={SavedBoosts} />
                 <Route
-                  path="/send-boost/:id"
+                  path='/send-boost/:id'
                   render={({ match }) => {
                     const { id } = match.params;
                     return <BoostForm img={id} history={history} />;
                   }}
                 />
-                <Route path="*" component={NotFound} />
+                <Route path='*' component={NotFound} />
               </Switch>
             </div>
           </div>
