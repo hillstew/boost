@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 5%;
 
   h1 {
     color: #5fa5e6;
@@ -15,4 +14,18 @@
 
 .BoostsSection-cards {
   display: flex;
+}
+
+@media screen and (max-width: 1215px) {
+  .BoostsSection-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .BoostsSection {
+    h1 {
+      font-size: 2.2rem;
+    }
+  }
 }
